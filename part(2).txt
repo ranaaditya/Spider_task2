@@ -1,0 +1,49 @@
+// SPIDER_TASK_1_PART_B  
+//created by ADITYA_RANA ON 25/05/2019...
+
+#include<iostream>
+using namespace std;
+
+// to check if matrix is symmetric or not
+bool ifsymmetric(char a[],int n){
+
+int x=0;
+
+for(int i=0;i<=n/2;i++){
+if(a[i]!=a[n-1-i])
+x-=1;
+}
+if(x<0) return (false);
+ else return (true);
+}
+
+
+
+int main(){
+int n,count=0;
+cout<<"enter the length of matrix";
+cin>>n;
+ char* a=new char[n];
+
+for(int i=0;i<n;i++)
+cin>>a[i];
+
+int b=0;
+
+// to get the symmetry of the matrix 
+while(n>1 && b>=0){
+if(ifsymmetric(a,n)){ count+=1;}
+else b-=1;
+
+n=n/2;
+}
+
+// final results of the program
+if(b<0 && count==0) cout<<"not a symmetric array";
+else
+cout<<"symmetry is   :"<<count;
+return 0;
+}
+
+
+

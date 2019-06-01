@@ -1,0 +1,128 @@
+// in this question there is one hint that there are total four queries and we can get the 3 numbers from 2 queries as (1,2),(2,3) will give the 
+//exact numbers at 1,2,3 positions similarly for next set of distinct numbers pass 4,5,6 in the form of two remaining queries i.e. (4,5)and(5,6)
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+map<int,pair<int,int>> mp;
+int ap[]={10,8,7,16,9,43};
+
+
+void getnumbers(int n){
+int i,j;
+map<int,pair<int,int>> :: iterator it;
+
+for(i=0;i<n-1;i++){
+for(j=i+1;j<n;j++){
+mp.insert((a[i]*a[j]),make_pair(a[i],a[j]));
+}
+}
+ //let the randomly sequence be {7,9,43,8,10,16} but we can also add an option to add this random sequence...
+ 
+int b[]={7,9,43,8,10,16};
+int c[4];
+int d[6];
+
+for(int k=0;k<4;k++){
+int p,q;
+cout<<"enter the "<<k+1<<"query";
+cin>>p>>q;
+c[k]=b[p]*[q];
+it=mp.find(c[k]);
+//error...
+
+d[p]=mp[it-mp.begin()].first.first;
+d[q]=mp[it-mp.begin()].first.second;
+}
+
+cout<<"the distinct number set is :";
+for(int h=0;h<5;h++){
+cout<<d[h]<<",";
+}
+}
+int main(){
+
+getnumbers():
+return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+
+
+
+
+
+
+
+
+
+
+
+// in this question there is one hint that there are total four queries and we can get the 3 numbers from 2 queries as (1,2),(2,3) will give the 
+//exact numbers at 1,2,3 positions similarly for next set of distinct numbers pass 4,5,6 in the form of two remaining queries i.e. (4,5)and(5,6)
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+map<int,pair<int,int>> mp;
+int ap[]={10,8,7,16,9,43};
+
+
+void getnumbers(){
+int i,j;
+map<int,pair<int,int>> :: iterator it;
+
+for(i=0;i<6;i++){
+for(j=i+1;j<6;j++){
+mp.insert((ap[i]*ap[j]),make_pair(ap[i],ap[j]));
+}
+}
+ //let the randomly sequence be {7,9,43,8,10,16} but we can also add an option to add this random sequence...
+ 
+int b[]={7,9,43,8,10,16};
+int c[4];
+int d[6];
+
+for(int k=0;k<4;k++){
+int p,q;
+cout<<"enter the "<<k+1<<"query";
+cin>>p>>q;
+c[k]=b[p]*[q];
+it=mp.find(c[k]);
+//error...
+
+d[p]=mp[it-mp.begin()].first.first;
+d[q]=mp[it-mp.begin()].first.second;
+}
+
+cout<<"the distinct number set is :";
+for(int h=0;h<5;h++){
+cout<<d[h]<<",";
+}
+}
+int main(){
+
+getnumbers():
+return 0;
+
+}
+**/

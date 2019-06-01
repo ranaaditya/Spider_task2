@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+
+void  game(int n,int r,int x,int y,int a[],int b[]){
+     int res=r;
+     for(int i=0;i<n;i++){
+
+          if(a[i]==1){
+               if(b[i]==1)
+                   r+=x;
+               else
+                   r-=y;
+            }
+         }
+if(r>res) cout<<"promoted";                //promoted if initial rating id greater
+if(r==res) cout<<"no change";              // no change if initial and final ratings are same 
+if(r<res) cout<<"demoted";                 //demoted when initial ratings is less than final rating
+}
+
+
+int main(){
+int n;
+cout<<"enter the number of days";            //no. of days of match occurs  
+cin>>n;
+
+int* a=new int[n];
+
+int* b=new int[n];
+
+int x,y,r;
+
+cout<<"enter the initial rating";         // value of r
+cin>>r;
+
+cout<<"enter the points to be increased";  // value to be increased
+cin>>x;
+
+cout<<"enter the points to be decreased";  // value to be decreased
+cin>>y;
+
+cout<<" enter the game array";            // game array for matches occur or not 
+for(int j=0;j<n;j++)
+cin>>a[j];
+
+cout<<"enter the food array";           // food array of adit
+for(int k=0;k<n;k++)
+cin>>b[k];
+
+game(n,r,x,y,a,b);                    // calling the function game to check the final rating of Adit
+
+delete []a;
+delete []b;
+
+return 0;
+}
+
+
+
+
+
+
+                
+                      
+              
