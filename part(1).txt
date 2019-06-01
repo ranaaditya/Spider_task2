@@ -3,17 +3,23 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-#define ll long long int;
+#define ll long long
 
 // function to convert binary into decimal...
 
 ll binary_decimal(int a[], int n){
+  
 ll num=0;
 for(int i=0;i<n;i++){
 if(a[i]==1)
-num += (ll)(pow(2,n-1-i));
+{
+num =num+ (ll)(pow(2,n-1-i));
 }
-return (num);
+else
+continue;
+}
+
+return num;
 
 }
 
@@ -30,7 +36,7 @@ arr[i]=n%2;
 i+=1;
 n=n/2;
 }
-for(int j=x-1;j>=0;j++)
+for(int j=x-1;j>=0;j--)
 cout<<arr[j];
 
 }
@@ -41,10 +47,12 @@ ll max_decimal(int n){
 int arr[n];
 for(ll i=0;i<n;i++)
 arr[i]=1; 
-return (convert_decimal(arr,n));
+ll num=binary_decimal(arr,n);
+return num;
+
 }
 
-
+// ain start here... 
 int main(){
 
 int n;
@@ -52,7 +60,7 @@ cout<<"enter the n:";
 cin>>n;
 ll number,temp,var,x;
 
-int* a=new int[n];
+int a[n];
 for(int i=0;i<n;i++)
 cin>>a[i];
 
@@ -62,39 +70,46 @@ cin>>a[i];
 
 //if input is zero then output will also be zero...
 
-if{number==0){
+if(number==0){
 for(int i=0;i<2;i++){
 for(int j=0;j<n;j++)
 cout<<"0";
 cout<<"\t";
 }
-
-
-// if number is equals to maximum possible number then no randomization is used...
-
+}else
 if(number==x){
 for(int i=0;i<2;i++){
 for(int j=0;j<n;j++)
 cout<<a[i];
 cout<<"\t";
 }
+}
 else{
 
 srand(time(NULL));
-temp=(rand()% (x+1))+1;
+temp=(rand()% (2*number))+1;
+
 var=(2*number) -temp; 
 if(temp<var){
 decimal_binary(temp,n);
+cout<<"\t";
 decimal_binary(var,n);}
 else{
 decimal_binary(var,n);
+cout<<"\t";
 decimal_binary(temp,n);
 
 }
-}
-delete []a;
+
+
 return 0;
 }
+}
+
+
+
+
+ 
 
 
 
